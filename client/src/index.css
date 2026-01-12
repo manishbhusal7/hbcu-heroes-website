@@ -1,0 +1,81 @@
+:root {
+  --bg: #000000;
+  --bg2: #0a0a0a;
+  --card: #1a1a1a;
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.95);
+  --muted: rgba(255, 255, 255, 0.85);
+  --gold: #FFD700;
+  --gold-dark: #F4C430;
+  --gold-light: #FFED4E;
+  --line: rgba(255, 215, 0, 0.2);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  --radius: 8px;
+  --max: 1120px;
+  --serif: "Playfair Display", "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background-color: #000000;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.70)),
+    url('/graduation-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Smooth scrolling enhancements */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold);
+  color: #000000;
+}
+
+::-moz-selection {
+  background: var(--gold);
+  color: #000000;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+

@@ -1,0 +1,50 @@
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 20px 48px rgba(255, 215, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin: 0 0 14px;
+  font-size: 26px;
+  font-family: var(--serif);
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
+  font-size: 17px;
+  font-weight: 500;
+}
+

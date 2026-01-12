@@ -1,0 +1,98 @@
+.white-impact-card {
+  background: #ffffff;
+  border: 3px solid #dc143c;
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.white-impact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.25),
+              0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.white-impact-card h3 {
+  font-size: 28px;
+  color: #000000;
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.white-impact-card p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+  font-weight: 500;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.stat {
+  border-radius: 8px;
+  padding: 24px 18px;
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0.02) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.22) 0%, rgba(255, 255, 255, 0.08) 55%, rgba(255, 255, 255, 0.03) 100%);
+  border-color: var(--gold);
+  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.6);
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.stat strong {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.stat span {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
