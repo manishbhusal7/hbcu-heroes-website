@@ -1,20 +1,12 @@
 .testimonial {
   background: #ffffff;
-  border: 3px solid #dc143c;
   border-radius: var(--radius);
   padding: 28px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
   position: relative;
   min-height: 300px;
   display: flex;
   flex-direction: column;
-}
-
-.testimonial:hover {
-  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.25),
-              0 0 30px rgba(255, 215, 0, 0.15);
-  transform: translateY(-4px);
 }
 
 .quote-icon {
@@ -100,4 +92,32 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 24px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
 }

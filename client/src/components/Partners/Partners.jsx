@@ -12,40 +12,14 @@ const Partners = () => {
       <Container>
         <SectionHeading
           eyebrow="Partners"
-          title="Turn Your Drinks Into A Scholarship Fund."
-          lead="Own a bar, restaurant, hotel, venue, or retail account? Join the Cocktail Challenge and donate through featured Uncle Nearest cocktails and activations. We provide the toolkit, campaign messaging, and reporting—you activate and pour with purpose."
+          title="Join Uncle Nearest in Supporting HBCU Heroes Scholarship Funds."
         />
-        <div className="partner-cta">
-          <Card>
-            <h3>Hospitality Partners</h3>
-            <p>
-              Donate <strong>$1 per featured Uncle Nearest cocktail</strong> (or a custom amount).
-              Turn your customer experience into measurable impact for students nationwide.
-            </p>
-            <div className="donation-buttons">
-              <Button variant="primary" href="#contact">Become a Partner</Button>
-              <Button variant="secondary" href="#contact">Download Partner Toolkit</Button>
-            </div>
-          </Card>
-          <Card>
-            <h3>Retail & Brand Partners</h3>
-            <p>
-              Activate in-store, online, or through customer promotions. Align your brand with a proven
-              impact campaign and help fund scholarships and career readiness.
-            </p>
-            <div className="donation-buttons">
-              <Button variant="primary" href="#contact">Partner Interest Form</Button>
-              <Button variant="secondary" href="#contact">Request Partner Deck</Button>
-            </div>
-          </Card>
+        <p style={{ fontSize: '18px', lineHeight: '1.7', marginBottom: '32px', textAlign: 'center', color: 'rgba(255, 255, 255, 0.9)' }}>
+          Thank you for being a partner to Uncle Nearest and providing your support by donating to HBCU Heroes. Haven't signed up yet, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvW-5yji2Xx5Geq5AycGgCpOfP8tNGPV9mC2r_N0hIwV24_Q/viewform" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>click here for the sign up form</a>.
+        </p>
+        <div className="partner-button-wrapper">
+          <Button variant="primary" href="#contact">Partner Donation</Button>
         </div>
-        <Card style={{ marginTop: '18px' }}>
-          <h3>Partner Benefits</h3>
-          <p>
-            Partners receive premium impact affiliation, campaign messaging, promotional support,
-            and the opportunity to help fund scholarships and student success programs nationwide.
-          </p>
-        </Card>
       </Container>
     </Section>
   )

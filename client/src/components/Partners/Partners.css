@@ -17,6 +17,12 @@
   margin-top: 18px;
 }
 
+.partner-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
 @media (max-width: 980px) {
   .partner-cta {
     grid-template-columns: 1fr;

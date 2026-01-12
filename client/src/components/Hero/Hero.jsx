@@ -65,111 +65,62 @@ const Hero = () => {
           animate="visible"
         >
           <motion.div variants={itemVariants} className="hero-main">
-            <motion.div 
-              className="kicker"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Honoring a Legacy, Empowering Tomorrow.
-            </motion.div>
             <div className="hero-title-section">
               <motion.div 
                 className="hero-logos"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-              >
-                {/* <img src="/unlogo.png" alt="Uncle Nearest" className="hero-brand-logo" /> */}
-                {/* <span className="hero-logo-separator">×</span> */}
-                {/* <img src="/hbcu-heroes-logo.jpg" alt="HBCU Heroes" className="hero-brand-logo" /> */}
-              </motion.div>
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Raise A Glass. <span className="title-highlight">Raise A Generation.</span>
-              </motion.h1>
-              <motion.div 
-                className="hero-bottles"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.8 }}
               >
-                <motion.img 
+                <img src="/cocktailchallenge.png" alt="Uncle Nearest HBCU Cocktail Challenge" className="hero-logo-cocktail" />
+                <span className="plus-sign">+</span>
+                <img src="/hbcu-heroes-logo.jpg" alt="HBCU Heroes" className="hero-logo-hbcu" />
+              </motion.div>
+              <motion.div 
+                className="hero-bottles"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                <img 
                   src="/group.png" 
                   alt="Uncle Nearest Whiskey Collection" 
                   className="bottles-image"
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.img 
-                  src="/cocktailchallenge.png" 
-                  alt="Cocktail Challenge Logo" 
-                  className="cocktail-challenge-logo"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
                 />
               </motion.div>
+              <motion.div
+                className="hero-banner"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                HONORING A LEGACY, EMPOWERING TOMORROW.<br />
+                JOIN UNCLE NEAREST IN SUPPORTING HBCU HEROES.
+              </motion.div>
             </div>
-            <motion.p
-              className="hero-highlight-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              The <strong>Uncle Nearest HBCU Cocktail Challenge X HBCU Heroes nitiative</strong> unites donors,
-              hospitality partners, and purpose-driven brands to fund <strong>scholarships, career readiness, and real-world
-              opportunity</strong> for HBCU students nationwide.
-            </motion.p>
-            <motion.p
-              className="hero-highlight-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              In just two campaign years, this movement helped raise <strong>$2.4M+</strong> to
-              support HBCU students—and in 2026, we're returning stronger than ever.
-            </motion.p>
             <motion.div 
               className="hero-actions"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Button variant="primary" href="#donate">Donate Now as an Individual</Button>
-              <Button variant="secondary" href="#contact">Donate Now as a Partner</Button>
+              <Button variant="primary" href="#donate">Donate Now</Button>
             </motion.div>
+            <motion.p
+              className="partner-link"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <a href="#contact">Partner Account? Click here to donate now.</a>
+            </motion.p>
             <motion.div 
-              className="microcopy tax-deductible-notice"
+              className="tax-notice-hero"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <strong>Donations are processed through HBCU Heroes, a 501(c)(3) nonprofit organization, and are tax-deductible to the extent allowed by law.</strong>
-            </motion.div>
-            <motion.div 
-              className="trustbar"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              {trustItems.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="chip"
-                  whileHover={{ scale: 1.02, y: -4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="chip-icon">{item.icon}</div>
-                  <strong>{item.title}</strong>
-                  <span>{item.description}</span>
-                </motion.div>
-              ))}
+              Donations are processed through HBCU Heroes, a 501(c)(3) nonprofit organization, and are tax-deductible to the extent allowed by law.
             </motion.div>
           </motion.div>
         </motion.div>

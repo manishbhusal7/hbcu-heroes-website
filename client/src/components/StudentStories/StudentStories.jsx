@@ -9,6 +9,8 @@ import Button from '../Button/Button'
 import './StudentStories.css'
 
 const StudentStories = () => {
+  const [currentIndex, setCurrentIndex] = React.useState(0)
+  
   const testimonials = [
     {
       name: 'Manish Bhusal',
@@ -36,60 +38,49 @@ const StudentStories = () => {
     }
   ]
 
+  const currentTestimonial = testimonials[currentIndex]
+
   return (
     <Section id="stories">
       <Container>
         <SectionHeading
           eyebrow="Student Stories"
           title="Impact Stories: What Your Support Makes Possible"
-          lead="Every story starts with a donor. Your generosity becomes a turning point for a student's future."
         />
-        <div className="grid-3">
-          {testimonials.map((testimonial, idx) => (
-            <motion.div
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="testimonial" hover={false}>
+            <div className="quote-icon">
+              <FormatQuote sx={{ fontSize: 48, color: 'rgba(200, 163, 90, 0.3)' }} />
+            </div>
+            <div className="t-head">
+              <div className="t-avatar">
+                <img src={currentTestimonial.image} alt={currentTestimonial.alt} />
+              </div>
+              <div className="t-meta">
+                <strong>{currentTestimonial.name}</strong>
+                <span>{currentTestimonial.role}</span>
+              </div>
+            </div>
+            <div className="pull">{currentTestimonial.quote}</div>
+            <div className="t-body">{currentTestimonial.story}</div>
+          </Card>
+        </motion.div>
+        <div className="carousel-dots">
+          {testimonials.map((_, idx) => (
+            <button
               key={idx}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: idx * 0.15,
-                ease: [0.6, -0.05, 0.01, 0.99]
-              }}
-            >
-              <Card className="testimonial" hover={false}>
-                <div className="quote-icon">
-                  <FormatQuote sx={{ fontSize: 48, color: 'rgba(200, 163, 90, 0.3)' }} />
-                </div>
-                <div className="t-head">
-                  <motion.div 
-                    className="t-avatar"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img src={testimonial.image} alt={testimonial.alt} />
-                  </motion.div>
-                  <div className="t-meta">
-                    <strong>{testimonial.name}</strong>
-                    <span>{testimonial.role}</span>
-                  </div>
-                </div>
-                <div className="pull">{testimonial.quote}</div>
-                <div className="t-body">{testimonial.story}</div>
-              </Card>
-            </motion.div>
+              className={`dot ${idx === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to story ${idx + 1}`}
+            />
           ))}
         </div>
-        <motion.div 
-          className="donation-buttons" 
-          style={{ marginTop: '26px' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <Button variant="primary" href="#donate">Donate Now</Button>
-        </motion.div>
       </Container>
     </Section>
   )

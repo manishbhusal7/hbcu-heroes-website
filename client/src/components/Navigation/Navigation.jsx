@@ -34,7 +34,6 @@ const Navigation = () => {
           <a href="#story" onClick={(e) => handleSmoothScroll(e, '#story')}>Our Story</a>
           <a href="#impact" onClick={(e) => handleSmoothScroll(e, '#impact')}>Impact</a>
           <a href="#how" onClick={(e) => handleSmoothScroll(e, '#how')}>How It Works</a>
-          <a href="#leadership" onClick={(e) => handleSmoothScroll(e, '#leadership')}>Leadership</a>
           <a href="#partners" onClick={(e) => handleSmoothScroll(e, '#partners')}>Partners</a>
         </div>
         <div className="nav-cta">
