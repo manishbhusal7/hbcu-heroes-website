@@ -72,7 +72,7 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                <img src="/cocktailchallenge.png" alt="Uncle Nearest HBCU Cocktail Challenge" className="hero-logo-cocktail" />
+                <img src="/UN_HBCU%20CHALLENGE%20LOGO_GLD.png" alt="Uncle Nearest HBCU Cocktail Challenge" className="hero-logo-cocktail" />
                 <span className="plus-sign">+</span>
                 <img src="/hbcu-heroes-logo.jpg" alt="HBCU Heroes" className="hero-logo-hbcu" />
               </motion.div>
@@ -83,7 +83,7 @@ const Hero = () => {
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 <img 
-                  src="/group.png" 
+                  src="/UN_bottleImage.png" 
                   alt="Uncle Nearest Whiskey Collection" 
                   className="bottles-image"
                 />
@@ -94,8 +94,8 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                HONORING A LEGACY, EMPOWERING TOMORROW.<br />
-                JOIN UNCLE NEAREST IN SUPPORTING HBCU HEROES.
+                Honoring a legacy, empowering tomorrow.<br />
+                Uncle Nearest is a proud Partner of HBCU Heroes.
               </motion.div>
             </div>
             <motion.div 
@@ -112,7 +112,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <a href="#contact">Partner Account? Click here to donate now.</a>
+              <a href="#donate">Partner Account? Click here to donate now.</a>
             </motion.p>
             <motion.div 
               className="tax-notice-hero"

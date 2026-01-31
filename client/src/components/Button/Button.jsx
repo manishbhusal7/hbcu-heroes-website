@@ -61,7 +61,9 @@ const Button = ({
   style = {},
   startIcon,
   endIcon,
-  fullWidth = false
+  fullWidth = false,
+  target,
+  rel,
 }) => {
   const buttonProps = {
     variant: 'contained',
@@ -71,6 +73,8 @@ const Button = ({
     startIcon,
     endIcon,
     fullWidth,
+    ...(target && { target }),
+    ...(rel && { rel }),
   }
 
   if (href) {
