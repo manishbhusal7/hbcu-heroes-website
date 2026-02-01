@@ -2,7 +2,7 @@
 export const partnerAccountsData = [
   {
     id: 1,
-    accountName: "Whiskey & Oak Bar",
+    accountName: "Mannu Bar & Grill",
     city: "Nashville",
     state: "TN",
     address: "123 Broadway Street",
@@ -11,11 +11,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "John Smith",
     phone: "(615) 555-0100",
-    email: "contact@whiskeyandoak.com"
+    email: "contact@mannubargrill.com"
   },
   {
     id: 2,
-    accountName: "Southern Spirits Lounge",
+    accountName: "Everest Southern Spirits",
     city: "Memphis",
     state: "TN",
     address: "456 Beale Street",
@@ -24,11 +24,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "Sarah Johnson",
     phone: "(901) 555-0200",
-    email: "info@southernspirits.com"
+    email: "info@everestsouthernspirits.com"
   },
   {
     id: 3,
-    accountName: "Premium Liquors Store",
+    accountName: "Premium Liquors",
     city: "Atlanta",
     state: "GA",
     address: "789 Peachtree Road",
@@ -41,7 +41,7 @@ export const partnerAccountsData = [
   },
   {
     id: 4,
-    accountName: "The Heritage Restaurant",
+    accountName: "The Heri Restaurant",
     city: "Charleston",
     state: "SC",
     address: "321 King Street",
@@ -50,11 +50,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "Emily Williams",
     phone: "(843) 555-0400",
-    email: "reservations@heritagerestaurant.com"
+    email: "reservations@therirestaurant.com"
   },
   {
     id: 5,
-    accountName: "Jazz & Bourbon Club",
+    accountName: "Momo center",
     city: "New Orleans",
     state: "LA",
     address: "567 Bourbon Street",
@@ -63,11 +63,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "Robert Brown",
     phone: "(504) 555-0500",
-    email: "info@jazzbourbon.com"
+    email: "info@momocenter.com"
   },
   {
     id: 6,
-    accountName: "Urban Spirits Market",
+    accountName: "Sekuwa Market",
     city: "Houston",
     state: "TX",
     address: "890 Main Street",
@@ -76,11 +76,11 @@ export const partnerAccountsData = [
     premiseType: "Off-Premise",
     contactName: "Jennifer Martinez",
     phone: "(713) 555-0600",
-    email: "manager@urbanspirits.com"
+    email: "manager@sekuwamarket.com"
   },
   {
     id: 7,
-    accountName: "The Capitol Tavern",
+    accountName: "The Ramen Tavern",
     city: "Washington",
     state: "DC",
     address: "456 Pennsylvania Ave",
@@ -89,11 +89,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "David Thompson",
     phone: "(202) 555-0700",
-    email: "contact@capitoltavern.com"
+    email: "contact@ramentavern.com"
   },
   {
     id: 8,
-    accountName: "Magnolia Fine Dining",
+    accountName: "Magno Fine Dining",
     city: "Birmingham",
     state: "AL",
     address: "234 20th Street",
@@ -102,11 +102,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "Patricia Wilson",
     phone: "(205) 555-0800",
-    email: "dining@magnoliafinedining.com"
+    email: "dining@magnofinedining.com"
   },
   {
     id: 9,
-    accountName: "Riverside Event Venue",
+    accountName: "River Event Venue",
     city: "Louisville",
     state: "KY",
     address: "678 River Road",
@@ -115,11 +115,11 @@ export const partnerAccountsData = [
     premiseType: "On-Premise",
     contactName: "Christopher Anderson",
     phone: "(502) 555-0900",
-    email: "events@riversidevenueky.com"
+    email: "events@rivervenueky.com"
   },
   {
     id: 10,
-    accountName: "Crown Spirits Retail",
+    accountName: "Crown  Retail",
     city: "Charlotte",
     state: "NC",
     address: "901 Trade Street",
@@ -128,7 +128,7 @@ export const partnerAccountsData = [
     premiseType: "Off-Premise",
     contactName: "Michelle Lee",
     phone: "(704) 555-1000",
-    email: "sales@crownspiritsretail.com"
+    email: "sales@crownretail.com"
   }
 ]
 
