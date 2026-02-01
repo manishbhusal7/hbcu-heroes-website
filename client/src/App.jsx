@@ -10,7 +10,7 @@ import Partners from './components/Partners/Partners'
 import Contact from './components/Contact/Contact'
 import Donate from './components/Donate/Donate'
 import Footer from './components/Footer/Footer'
-
+import PartnerAccounts from './components/PartnerAccounts/PartnerAccounts'
 function App() {
   return (
     <>
@@ -18,6 +18,7 @@ function App() {
       <Hero />
       <WhereYourGiftGoes />
       <HowItWorks />
+            <PartnerAccounts />
       <StudentStories />
       <Impact />
       <UncleNearestStory />
