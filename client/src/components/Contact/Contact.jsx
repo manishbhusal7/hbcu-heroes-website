@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import Container from '../Container/Container'
 import Section from '../Section/Section'
 import Button from '../Button/Button'
@@ -12,11 +13,54 @@ const Contact = () => {
     subject: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    console.log('Form submitted!')
+    console.log('Form data:', formData)
+    console.log('EmailJS Config:', {
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    })
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'HBCU Heroes Team'
+      }
+
+      console.log('Sending email with params:', templateParams)
+
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+
+      console.log('Email sent successfully:', result)
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Email send failed:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -99,8 +143,25 @@ const Contact = () => {
               />
             </div>
 
-            <Button variant="primary" type="submit" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>
-              Send Message
+            {submitStatus === 'success' && (
+              <div className="form-message success">
+                ✓ Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="form-message error">
+                ✗ Failed to send message. Please try again or email us directly.
+              </div>
+            )}
+
+            <Button 
+              variant="primary" 
+              type="submit" 
+              style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         </motion.div>
