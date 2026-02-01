@@ -64,6 +64,8 @@ const Button = ({
   fullWidth = false,
   target,
   rel,
+  type,
+  disabled,
 }) => {
   const buttonProps = {
     variant: 'contained',
@@ -73,6 +75,8 @@ const Button = ({
     startIcon,
     endIcon,
     fullWidth,
+    type,
+    disabled,
     ...(target && { target }),
     ...(rel && { rel }),
   }
