@@ -16,9 +16,14 @@ const Footer = () => {
             <p className="footer-tax-notice">
               <strong>Donations are processed through HBCU Heroes, a 501(c)(3) nonprofit organization, and are tax-deductible to the extent allowed by law.</strong>
             </p>
+            <address className="footer-address">
+              <strong>HBCU Heroes</strong><br />
+              1870 The Exchange SE Ste 220 <br />
+              Atlanta, Georgia 30339-2171
+            </address>
           </div>
           <div className="foot-links">
-            <a href="#mission">Mission</a>
+            {/* <a href="#mission">Mission</a> */}
             <a href="#impact">Impact</a>
             <a href="#how">How It Works</a>
             <a href="#stories">Student Stories</a>

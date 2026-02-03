@@ -27,6 +27,18 @@ footer {
   margin-top: 12px !important;
 }
 
+.footer-address {
+  font-style: normal;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-top: 24px;
+}
+
+.footer-address strong {
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .foot-links a {
   display: block;
   color: rgba(255, 255, 255, 0.8);
