@@ -22,7 +22,7 @@ const StudentStories = () => {
     },
     {
       name: 'Amir Long',
-      role: 'Senior, Business Major - Clark Atlanta University',
+      role: 'Senior,Psychology B.S - Clark Atlanta University',
       image: 'amir.jpg',
       alt: 'Amir Long, Clark Atlanta University student and scholarship recipient',
       quote: "As a graduating senior, I've learned that success isn't just about what you study, it's about having the resources, guidance, and preparation to translate your education into real-world opportunity.",
