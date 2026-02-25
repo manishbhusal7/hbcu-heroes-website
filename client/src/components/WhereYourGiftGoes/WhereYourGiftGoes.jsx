@@ -30,6 +30,18 @@ const WhereYourGiftGoes = () => {
   return (
     <Section id="gift" tight>
       <Container>
+        <motion.div
+          className="partnership-logos"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <img src="/UN_HBCU%20CHALLENGE%20LOGO_GLD.png" alt="Uncle Nearest HBCU Cocktail Challenge" className="partner-logo-cocktail" />
+          <span className="partner-plus">+</span>
+          <img src="/hbcu-heroes-logo.jpg" alt="HBCU Heroes" className="partner-logo-hbcu" />
+        </motion.div>
+
         <SectionHeading
           eyebrow="Where Your Gift Goes"
           title="Your Donation Fuels Student Success"
