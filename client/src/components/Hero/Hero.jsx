@@ -6,68 +6,71 @@ import Section from '../Section/Section'
 import Button from '../Button/Button'
 import './Hero.css'
 
-const CanvasSequence = ({ scrollYProgress }) => {
-  const canvasRef = useRef(null);
-  const [images, setImages] = useState([]);
-  const frameCount = 192;
+const VideoSequence = ({ scrollYProgress }) => {
+  const videoRef = useRef(null);
+  const [videoDuration, setVideoDuration] = useState(0);
 
   useEffect(() => {
-    const loadedImages = [];
-    let loadedCount = 0;
+    const video = videoRef.current;
+    if (!video) return;
 
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      const frameNum = String(i).padStart(3, '0');
-      img.onload = () => {
-        loadedCount++;
-        if (i === 1 && canvasRef.current) {
-          const ctx = canvasRef.current.getContext('2d');
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = 'high';
-          ctx.drawImage(img, 0, 0, 1280, 720);
-        }
-      };
-      img.src = `/alcohol2/ezgif-frame-${frameNum}.jpg`;
-      loadedImages.push(img);
-    }
-    setImages(loadedImages);
-  }, []);
+    // Wait until metadata is loaded to ensure we have the exact duration
+    const handleLoadedMetadata = () => {
+      setVideoDuration(video.duration);
+      // Pre-seek to frame 0 immediately
+      video.currentTime = 0;
+    };
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      // Scale canvas internal resolution for High-DPI / Retina displays
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = 1280 * dpr;
-      canvas.height = 720 * dpr;
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
-    }
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    // Helps unlock the video for mobile devices by engaging play on first interaction 
+    const unlockVideo = () => {
+      if (video.paused) {
+        video.play().then(() => {
+          video.pause();
+        }).catch(() => { });
+      }
+      window.removeEventListener('touchstart', unlockVideo);
+      window.removeEventListener('click', unlockVideo);
+    };
+
+    window.addEventListener('touchstart', unlockVideo);
+    window.addEventListener('click', unlockVideo);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      window.removeEventListener('touchstart', unlockVideo);
+      window.removeEventListener('click', unlockVideo);
+    };
   }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // Map the 0-1 progress perfectly to our 192 frames!
-    let frameIndex = Math.floor(latest * (frameCount - 1));
-    if (frameIndex >= frameCount) frameIndex = frameCount - 1;
-    if (frameIndex < 0) frameIndex = 0;
+    const video = videoRef.current;
+    if (video && video.readyState >= 1) { // 1 = HAVE_METADATA
+      const duration = videoDuration || video.duration;
+      if (duration > 0) {
+        // Map 0-1 progress to the exact video timeline in seconds
+        let targetTime = latest * duration;
+        // Safety bounds
+        if (targetTime > duration) targetTime = duration;
+        if (targetTime < 0) targetTime = 0;
 
-    const canvas = canvasRef.current;
-    if (canvas && images[frameIndex]) {
-      const img = images[frameIndex];
-      if (img.complete && img.naturalWidth > 0) {
-        const ctx = canvas.getContext('2d');
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        ctx.clearRect(0, 0, 1280, 720);
-        ctx.drawImage(img, 0, 0, 1280, 720);
+        // Use requestAnimationFrame for smoother DOM repaints when scrubbing
+        requestAnimationFrame(() => {
+          video.currentTime = targetTime;
+        });
       }
     }
   });
 
   return (
-    <canvas
-      ref={canvasRef}
+    <video
+      ref={videoRef}
       className="canvas-bg"
+      src="/alcohol2/Whiskey_Video_Scrub.mp4"
+      playsInline
+      muted
+      preload="auto"
       style={{
         width: '100vw',
         height: '100vh',
@@ -147,7 +150,7 @@ const Hero = () => {
       <div className="sticky-canvas-wrapper">
         <div className="hero-media"></div>
         <div className="hero-bg"></div>
-        <CanvasSequence scrollYProgress={smoothProgress} />
+        <VideoSequence scrollYProgress={smoothProgress} />
         {/* Adds vignette to ensure text readability */}
         <div className="hero-gradient-overlay"></div>
       </div>
